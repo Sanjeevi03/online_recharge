@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Recharge</title> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css" >
+	<link rel="stylesheet" media="screen and (max-width: 1140px)" href="css/s1.css">
+	<link rel="stylesheet" media="screen and (max-width: 985px)" href="css/s2.css">
+	<link rel="stylesheet" media="screen and (max-width: 863px)" href="css/s3.css">
+	<link rel="stylesheet" media="screen and (max-width: 815px)" href="css/s4.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body onscroll="closeFor(), adminloginboxclose()">
+<!------------------------------------------------------------HEADER----------------------------------------------------->
+<header>
+	<div class="headcon">
+		<div class="logo">
+			<h4 title="Online Recharge">Online Recharge</h4>
+		</div>
+		<div class="log-box">
+			<button  onclick="openForm()">
+				<i class="glyphicon glyphicon-user"></i>LOGIN/REGISTER
+			</button>
+			<button onclick="adminloginbox()">
+				Admin
+			</button>
+		</div>        
+<!--------------------------------------------------------- ADMIN  LOGIN--------------------------------------------->
+<div id="adminloginbox">
+	<h4> Admin Login</h4>
+	<form action="insert.php" method="POST" name="adminloginform">
+		<i class="glyphicon glyphicon-user"></i><input type="text" name="admin" placeholder="admin" required="">
+		<i class="glyphicon glyphicon-lock"></i><input type="password" name="adminpsw" placeholder="password" required="">
+		<button type="submit" name="adminsubmit">
+			Login
+		</button>
+	</form>
+</div>
+<!---------------------------------------------------------LOGIN AND REGISTER--------------------------------------------->
+<div id="myForm">
+<div class="log-res">
+	
+	<div class="box-1">
+		<div class="con-hol">
+			<img src="images/ph1.png">
+			<h1>This is a Register Button from here you can create New account</h1>
+			
+			<button class="btn-1" onclick="signup()">Sign up</button>
+			<button class="btn-2" onclick="login()">Login</button>
+		</div>
+	</div>	
+	<div class="box-2">
+		<i class="glyphicon glyphicon-remove" title="Close" onclick="closeForm()" ></i>
+		<div class="login">
+			<h1>Login</h1>
+			<input type="text" name="uname" placeholder="Enter Username" class="input-field1" required=""><br><br>
+			<input type="password" name="upsw" placeholder="Enter password" class="input-field1" required=""><br><br>
+			<button class="login-button">Login</button>
+		</div>
+
+		<div class="reg">
+			<h1>Sign Up</h1>
+			Enter Your Name<br><input type="text" name="uname"  class="input-field" required=""><br><br>
+			Enter Your Email<br><input type="text" name="uname"   class="input-field" required=""><br><br>
+			Enter Your Password<br><input type="password" name="upsw"   class="input-field" required=""><br><br>
+			Confirm Your Password<br><input type="text" name="uname"  class="input-field" required=""><br><br>
+			<button class="login-button">Sign Up</button>
+		</div>
+	</div>
+</div>	
+</div>
+</header>
+
+<!------------------------------------------------------------SLIDE SHOW--------------------------------------------->
+<div class="ss ss-media">
+		<img class="mySlides" src="images/1.jpg" >
+  		<!--<img class="mySlides" src="images/2.jpg" > -->
+  		<img class="mySlides" src="images/3.jpg" >
+  		<img class="mySlides" src="images/4.jpg" >
+</div>
+<script>
+	var myIndex = 0;
+	carousel();
+
+	function carousel() {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  for (i = 0; i < x.length; i++) {
+	    x[i].style.display = "none";  
+	  }
+	  myIndex++;
+	  if (myIndex > x.length) {myIndex = 1}    
+	  x[myIndex-1].style.display = "block";  
+	  setTimeout(carousel, 3500);  
+	}
+</script>
+
+<!------------------------------------------------------------NAVBAR--------------------------------------------->
+<div class="navbox">
+	<div class="tab">
+		<ul style="list-style-type: none;">
+			<li id="b1">
+				<i class="glyphicon glyphicon-phone"></i>
+		  		<button class="tablinks" onclick="b1()">Mobile recharge</button>
+		 	</li>
+		 	<li id="b2">
+		 		<i class="fa fa-television"></i>
+		 		<button class="tablinks" onclick="b2()">DTH</button>
+		 	</li>
+		 	<li id="b3">
+		 		<i class="fa fa-lightbulb-o"></i>
+		 		<button class="tablinks" onclick="b3()">Electricity</button>
+		 	</li>
+		 	<li id="b4">
+		 		<i class="fa fa-fire"></i>
+		 	    <button class="tablinks" onclick="b4()">Gas Pay</button>
+		 	</li>
+		 	<li id="b5">
+		 		<i class="fa fa-tint"></i>
+		 		<button class="tablinks" onclick="b5()">Water Bill Pay</button>
+		 	</li>
+		</ul>
+	</div>
+
+<!---------------------- TAB ANSWER---------------------------->
+	<div class="tabans">
+		<!---------------------- MOBILE---------------------------->    
+		<div id="mob" class="tabcontent tab1 ">
+			<img src="images/mobile.png" width="70px" height="70px"><br>
+		    <span>
+		      <button class="rebtn" id="reb1" onclick="plans()">Prepaid</button>
+		      <button class="rebtn" id="reb2" onclick="plans2()">Postpaid</button>
+		    </span>
+		    <!-----------PREPAID---------->
+			<div class="prepaid " id="prepaid">
+				<h4 class="tabansh4">Enter your mobile number</h4>
+				<input type="text" name="premobnum" required="" class="tabansinput"><br>
+				<select name="preope" class="tabansselect">
+					<option value="">Select Your Operator</option>
+					<option value="">Airtel</option>
+					<option value="">BSNL</option>
+					<option value="">Tata Docomo</option>
+					<option value="">Reliance</option>
+					<option value="">Jio</option>
+					<option value="">Vodafone</option>
+					<option value="">Idea</option>
+				</select> <br>
+				<select name="precircle" required="" class="tabansselect">
+					<option value="">Select Circle</option>
+					<option data-tokens="Select Circle">Select Circle</option>
+					<option data-tokens="Chennai">Chennai</option>
+					<option data-tokens="Delhi NCR">Delhi NCR</option>
+					<option data-tokens="Kolkata">Kolkata</option>
+					<option data-tokens="Mumbai">Mumbai</option>
+					<option data-tokens="Maharashtra & Goa">Maharashtra & Goa</option>
+					<option data-tokens="Assam">Assam</option>
+					<option data-tokens="Bihar & Jharkhand">Bihar & Jharkhand</option>
+					<option data-tokens="Gujarat">Gujarat</option>
+					<option data-tokens="Haryana">Haryana</option>
+					<option data-tokens="Himachal Pradesh">Himachal Pradesh</option>
+					<option data-tokens="Jummu & Kashmir">Jummu & Kashmir</option>
+					<option data-tokens="Karnataka">Karnataka</option>
+					<option data-tokens="Kerala">Kerala</option>
+					<option data-tokens="Andhra Pradesh">Andhra Pradesh</option>
+					<option data-tokens="MP & Chattisgarh">MP & Chattisgarh</option>
+					<option data-tokens="North East">North East</option>
+					<option data-tokens="Orissa">Orissa</option>
+					<option data-tokens="Punjab">Punjab</option>
+					<option data-tokens="Rajasthan">Rajasthan</option>
+					<option data-tokens="Tamilnadu">Tamilnadu</option>
+					<option data-tokens="UP East">UP East</option>
+					<option data-tokens="UP West & Utterkhand">UP West & Utterkhand</option>
+					<option data-tokens="West Bengal">West Bengal</option>
+				</select>
+				<h4 class="tabansh4">Enter Amount</h4>
+				<input type="text" name="preamo" required=""  style="width: 200px;" class="tabansinput"><a href="viewplan.html">View all plans</a><br>
+				<button type="button" name="prebtn" class="tabansbtn">Recharge Now</button>
+			</div>    
+
+    		<!-----------POSTPAID---------->
+			<div class="postpaid" id="postpaid">
+				<h4 class="tabansh4">Enter your mobile number</h4>
+				<input type="text" name="postmobnum" required="" class="tabansinput"><br>
+				<select name="postoper" class="tabansselect">
+					<option value="">Select Your Operator</option>
+					<option value="">Airtel</option>
+					<option value="">BSNL</option>
+					<option value="">Tata Docomo</option>
+					<option value="">Reliance</option>
+					<option value="">Jio</option>
+					<option value="">Vodafone</option>
+					<option value="">Idea</option>
+				</select><br>
+				<select name="postcircle" required="" class="tabansselect" >
+					<option value="">Select Circle</option>
+					<option data-tokens="Select Circle">Select Circle</option>
+					<option data-tokens="Chennai">Chennai</option>
+					<option data-tokens="Delhi NCR">Delhi NCR</option>
+					<option data-tokens="Kolkata">Kolkata</option>
+					<option data-tokens="Mumbai">Mumbai</option>
+					<option data-tokens="Maharashtra & Goa">Maharashtra & Goa</option>
+					<option data-tokens="Assam">Assam</option>
+					<option data-tokens="Bihar & Jharkhand">Bihar & Jharkhand</option>
+					<option data-tokens="Gujarat">Gujarat</option>
+					<option data-tokens="Haryana">Haryana</option>
+					<option data-tokens="Himachal Pradesh">Himachal Pradesh</option>
+					<option data-tokens="Jummu & Kashmir">Jummu & Kashmir</option>
+					<option data-tokens="Karnataka">Karnataka</option>
+					<option data-tokens="Kerala">Kerala</option>
+					<option data-tokens="Andhra Pradesh">Andhra Pradesh</option>
+					<option data-tokens="MP & Chattisgarh">MP & Chattisgarh</option>
+					<option data-tokens="North East">North East</option>
+					<option data-tokens="Orissa">Orissa</option>
+					<option data-tokens="Punjab">Punjab</option>
+					<option data-tokens="Rajasthan">Rajasthan</option>
+					<option data-tokens="Tamilnadu">Tamilnadu</option>
+					<option data-tokens="UP East">UP East</option>
+					<option data-tokens="UP West & Utterkhand">UP West & Utterkhand</option>
+					<option data-tokens="West Bengal">West Bengal</option>
+				</select>
+				<h4 class="tabansh4">How much to pay</h4>
+				<input type="text" name="postamo" required=""  style="width: 200px;" class="tabansinput"> <br>
+				<button type="button" name="postbtn" class="tabansbtn">Pay bill</button>
+			</div>
+
+		</div>
+
+		<div id="dth" class="tabcontent ">
+			<img src="images/d1.png" width="80px" height="80px"><br>
+			<div class=" dth allt">
+				<select required="" class="tabansselect">
+			  		<option value="">Select Your Operator</option>
+					<option>Airtel</option>
+					<option>Dish Tv</option>
+					<option>Sun Direct</option>
+					<option>Tata Sky</option>
+					<option>Videocon</option>
+				</select>
+			<h4 class="tabansh4">Enter Customer Name or ID</h4>
+			<input type="text" name="" required="" class="tabansinput">
+			<h4 class="tabansh4">Enter Amount</h4>
+			<input type="text" name="" required=""  style="width: 200px;" class="tabansinput"><br>
+			<button type="button" class="tabansbtn">Recharge Now</button>
+			</div>
+		</div>
+
+		<div id="elebill" class="tabcontent ">
+		  	<img src="images/e.png" width="80px" height="80px"><br>
+		    <div class="elebill allt">
+			<select required="" class="tabansselect">
+		  		<option value="">Select Your Circle</option>
+				<option>Operator 1</option class="mediaselect">
+				<option>Operator 2</option>
+				<option>Operator 3</option>
+				<option>Operator 4</option>
+			</select>
+			<h4 class="tabansh4">Enter Customer Name or ID</h4>
+			<input type="text" name="" required="" class="tabansinput">
+			<h4 class="tabansh4">Enter Amount</h4>
+			<input type="text" name="" required=""  style="width: 200px;" class="tabansinput"><br>
+			<button type="button" class="tabansbtn">Recharge Now</button>
+			</div>
+		</div>
+
+		<div id="gaspay" class="tabcontent ">
+			<img src="images/gas.png" width="80px" height="80px"><br>
+			<div class="gas allt">
+			<select required="" class="tabansselect">
+		  		<option value="">Select Your Agency</option>
+				<option>Operator 1</option>
+				<option>Operator 2</option>
+				<option>Operator 3</option>
+				<option>Operator 4</option>
+			</select>
+			<h4 class="tabansh4">Enter Customer Name or ID</h4>
+			<input type="text" name="" required="" class="tabansinput">
+			<h4 class="tabansh4">Enter Amount</h4>
+			<input type="text" name="" required=""  style="width: 200px;" class="tabansinput"><br>
+			<button type="button" class="tabansbtn">Recharge Now</button>
+			</div>
+		</div>
+
+
+		<div id="water" class="tabcontent ">
+			<img src="images/w.png" width="80px" height="80px"><br>
+			<div class="water allt">
+			<select required="" class="tabansselect">
+		  		<option value="">Select Your Operator</option>
+				<option>Operator 1</option>
+				<option>Operator 2</option>
+				<option>Operator 3</option>
+				<option>Operator 4</option>
+			</select>
+			<h4 class="tabansh4">Enter Customer Name or ID</h4>
+			<input type="text" name="" required="" class="tabansinput">
+			<h4 class="tabansh4">Enter Amount</h4>
+			<input type="text" name="" required=""  style="width: 200px;" class="tabansinput"><br>
+			<button type="button" class="tabansbtn">Recharge Now</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!------------------------------------------------------------CUSTOMER SUPPORT--------------------------------------------->
+<div class="cus">
+		<img src="images/cus.jpg">
+	<div class="cus1">
+		<h4>Online Recharge</h4>
+		<h1>24/7 Customer Service Support</h1>
+		<button onclick="getElementById('demo').innerHTML='We Will Get Back  You.....!'">Get Call</button>
+		<h4 id="demo" style="text-decoration:none;"></h4>
+	</div>
+</div>
+
+
+<!------------------------------------------------------------ADDS--------------------------------------------->
+<div class="add">
+	<h1>We are accepted at</h1>
+	<div class="add1">
+		<span><img src="images/lg.png" width="7%" height="7%"></span>
+		<span><img src="images/lg1.png" width="7%" height="7%"></span>
+		<span><img src="images/lg2.png" width="7%" height="7%"></span>
+		<span><img src="images/lg3.png" width="7%" height="7%"></span>
+		<span><img src="images/lg4.png" width="7%" height="7%"></span>
+	</div>
+	<div class="add2">
+		<span><img src="images/lg5.png" width="7%" height="7%"></span>
+		<span><img src="images/lg6.png" width="7%" height="7%"></span>
+		<span><img src="images/lg7.png" width="7%" height="7%"></span>
+		<span><img src="images/lg8.png" width="7%" height="7%"></span>
+		<span><img src="images/lg9.png" width="7%" height="7%"></span>
+	</div> 
+</div>
+
+<!------------------------------------------------------------JOIN US--------------------------------------------->
+<div class="joinus">
+	<h2>Join Us</h2>
+	<span>
+		<img src="images/f.png">
+		<img src="images/i.jpg">
+		<img src="images/t.jpg">
+		<img src="images/g.png">
+	</span>
+	<div class="subc">
+		<h3>Subscribe to our Website</h3>
+		<form onsubmit="return myFunction()" action="" name="subform">
+			<input type="email" name="semail" placeholder="Enter Your Email...." required="" />
+			<button type="button" id='sub'>Subcribe</button>
+		</form>
+		<script type="text/javascript">
+
+		document.getElementById("sub").addEventListener("click", myFunction);
+
+		function myFunction() {
+		var semail = document.forms["subform"]["semail"];
+		if (semail.value!="") {
+		document.getElementById("sub").innerHTML = "Subcribed";
+		document.getElementById('sub').style.cssText=" font-size:19px;background-color:#2ec962;"
+		}
+		else{
+		alert("Enter Your Email to Subcribe")
+
+		}
+		}
+		</script>
+	</div>
+</div>
+
+<!------------------------------------------------------------FOOTER--------------------------------------------->
+<div class="foot">
+	<div class="c1 footc">
+		<span><h4>COMPANY</h4></span>
+		<ul>
+			<li>
+				<a href="about.html">About Us</a>
+			</li>
+			<li>
+				<a href="support.html">Support</a>
+			</li>
+			<li>
+				<a href="term.html">Terms&Conditions</a>
+			</li>
+			<li>
+				<a href="gallery.html">Gallery</a>
+			</li>
+			<li>
+				<a href="contact.html">Contact</a>
+			</li>
+			<li>
+				<a href="location.html">Sitemap</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="c2 footc">
+		<h4 >MOBILES</h4>
+		<ul>
+			<li>
+				<a href="https://www.airtel.in/dth/Bangalore" target="_blank">Airtel</a>
+			</li>
+			<li>
+				<a href="http://www.bsnl.co.in/" target="_blank">BSNL</a>
+			</li>
+			<li>
+				<a href="https://www.vodafone.in/blog" target="_blank">Vodafone</a>
+			</li>
+			
+			<li>
+				<a href="https://www.ideacellular.com/" target="_blank">idea</a>
+			</li>
+			<li>
+				<a href="https://www.jio.com/" target="_blank">Jio</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="c3 footc">
+		<h4>DTH </h4>
+		<ul>
+		<li>
+			<a href="https://www.sundirect.in/about-us" target="_blank">Sun Direct</a>
+		</li>
+		<li>
+			<a href="https://www.dishtv.in/" target="_blank">Dish TV</a>
+		</li>
+		<li>
+			<a href="https://www.tatasky.com/dth/about-us" target="_blank">Tata Sky</a>
+		</li>
+		
+		
+		<li>
+			<a href="https://www.airtel.in/digital-tv/interactive_services_allpop/summary_of_rights_of_subscriber" target="_blank">Airtel DTH</a>
+		</li>
+	</ul>
+
+	</div>
+
+	<div class="c4 footc">
+		<h4>PAYMENT OPTIONS</h4>
+		<ul>
+		<li>
+			<a href="">Credit Cards</a>
+		</li>
+		<li>
+			<a href="">Debit Cards</a>
+		</li>
+		<li>
+			<a href="">Visa Debit Cards</a>
+		</li>
+		<li>
+			<a href="">Direct Bank</a>
+		</li>
+		</ul>
+	</div>
+</div> 
+
+<div class="bottomfooter">
+	<h2>ONLINE RECHARGE</h2>
+	<h4>&copy; 2020  Online Recharge | All Rights Reserved </h4>
+</div>
+</body>
+</html>
